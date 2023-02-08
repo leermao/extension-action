@@ -38,5 +38,5 @@ jobs:
         with:
           xpi-path: ${{ env.FIREFOX_PATH_XPI }}
           addon-guid: ${{ env.FIREFOX_ADDON_GUID }}
-          jwt-issuer: ${{ secrets.FIREFOX_JWT_ISSUER }}
-          jwt-secret: ${{ secrets.FIREFOX_JWT_SECRET }}
+          jwt-issuer: ${{ env.FIREFOX_JWT_ISSUER }}
+          jwt-secret: ${{ env.FIREFOX_JWT_SECRET }}
