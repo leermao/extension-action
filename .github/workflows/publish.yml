@@ -10,10 +10,12 @@ jobs:
     name: Build project for Mozilla Firefox
     runs-on: ubuntu-latest
     steps:
-      - name: Initialize
-        run: make github-action-init
-      - name: Check out repository
-        uses: actions/checkout@v3
+      - name: Set yarn cache
+        uses: c-hive/gha-yarn-cache@v2
+
+      - name: Install dependencies
+        run: yarn
+
       - name: Build project
         run: yarn build-firefox
 
