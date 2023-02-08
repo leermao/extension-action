@@ -3,7 +3,7 @@ name: Publish Edge
 on:
   push:
     branches:
-      - main
+      - main-1
 
 jobs:
   publish-edge:
