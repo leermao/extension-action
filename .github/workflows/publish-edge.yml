@@ -1,0 +1,43 @@
+name: Publish
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish-edge:
+    name: Publish extension to Edge Add-ons
+    runs-on: ubuntu-latest
+    needs:
+      - build-chrome
+    env:
+      EDGE_PRODUCT_ID: 'b8afd1eb-98a4-4712-b53e-93b3e4834a99'
+      EDGE_CLIENT_ID: '6370ecc6-f298-460b-ae52-1bffb6fe2ba4'
+      EDGE_CLIENT_SECRET: 'Rup8Q~56KrBhx6hFhn5PL68snItpgp5576ke~cdh'
+      EDGE_ACCESS_TOKEN_URL: 'https://login.microsoftonline.com/5c9eedce-81bc-42f3-8823-48ba6258b391/oauth2/v2.0/token'
+      CHROME_PATH_ZIP: './extension.zip'
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Set yarn cache
+        uses: c-hive/gha-yarn-cache@v2
+
+      - name: Install dependencies
+        run: yarn
+
+      - name: Build project
+        run: zip -rq extension.zip extension
+
+      - name: Show file
+        run: ls -l
+
+      - name: Publish to Edge Add-ons
+        uses: wdzeng/edge-addon@v1
+        with:
+          product-id: ${{ env.EDGE_PRODUCT_ID }}
+          zip-path: ${{ env.CHROME_PATH_ZIP }}
+          client-id: ${{ secrets.EDGE_CLIENT_ID }}
+          client-secret: ${{ secrets.EDGE_CLIENT_SECRET }}
+          access-token-url: ${{ secrets.EDGE_ACCESS_TOKEN_URL }}
