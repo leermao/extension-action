@@ -22,7 +22,7 @@ jobs:
       - name: Build project
         run: yarn build-firefox
 
-      - name: show dist
+      - name: Show file
         run: ls -l
 
   publish-firefox:
@@ -36,6 +36,8 @@ jobs:
       FIREFOX_JWT_ISSUER: 'user:17770123:613'
       FIREFOX_JWT_SECRET: '6444d42fa40f195f0f3b8414a3dce243d4af739e67a87ab05ea33e214d3f5c47'
     steps:
+      - name: Show file
+        run: ls -l
       - name: Publish to Firefox Add-ons
         uses: wdzeng/firefox-addon@v1
         with:
