@@ -14,7 +14,7 @@
     "upload": "npm run bundle && blocklet upload .blocklet/release/blocklet.json",
     "prepare": "husky install",
     "bump-version": "zx scripts/bump-version.mjs",
-    "build-firefox": "zx scripts/build.mjs"
+    "build-firefox": "web-ext build -s ./extension-firefox/ -n extension-firefox.zip -a ./ -o"
   },
   "lint-staged": {
     "*.{mjs,js,jsx,ts,tsx}": [
