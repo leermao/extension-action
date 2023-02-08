@@ -36,6 +36,6 @@ jobs:
         with:
           product-id: ${{ env.EDGE_PRODUCT_ID }}
           zip-path: ${{ env.CHROME_PATH_ZIP }}
-          client-id: ${{ secrets.EDGE_CLIENT_ID }}
-          client-secret: ${{ secrets.EDGE_CLIENT_SECRET }}
-          access-token-url: ${{ secrets.EDGE_ACCESS_TOKEN_URL }}
+          client-id: ${{ env.EDGE_CLIENT_ID }}
+          client-secret: ${{ env.EDGE_CLIENT_SECRET }}
+          access-token-url: ${{ env.EDGE_ACCESS_TOKEN_URL }}
