@@ -31,7 +31,7 @@ jobs:
         run: ls -l
 
       - name: Publish to Firefox Add-ons
-        uses: wdzeng/firefox-addon@v1.0.3
+        uses: wdzeng/firefox-addon@v1
         with:
           xpi-path: ${{ env.FIREFOX_PATH_XPI }}
           addon-guid: ${{ env.FIREFOX_ADDON_GUID }}
