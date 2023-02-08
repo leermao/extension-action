@@ -1,0 +1,27 @@
+{
+  "name": "picture of the demo",
+  "version": "0.0.5",
+  "manifest_version": 3,
+  "description": "An extension to display picture of demo.",
+  "icons": {
+    "16": "icons/2.png",
+    "32": "icons/2.png",
+    "48": "icons/2.png",
+    "128": "icons/2.png"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["*"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["content_script.js"]
+    }
+  ]
+}
