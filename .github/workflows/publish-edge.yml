@@ -1,4 +1,4 @@
-name: Publish
+name: Publish Edge
 
 on:
   push:
@@ -6,43 +6,9 @@ on:
       - main
 
 jobs:
-  publish-firefox:
-    name: Publish extension to Firefox Add-ons
-    runs-on: ubuntu-latest
-    env:
-      FIREFOX_ADDON_GUID: '{8e6b27d1-59f7-41eb-a14b-c9eb112e9cf6} '
-      FIREFOX_PATH_XPI: './extension-firefox.zip'
-      FIREFOX_JWT_ISSUER: 'user:17770123:613'
-      FIREFOX_JWT_SECRET: '6444d42fa40f195f0f3b8414a3dce243d4af739e67a87ab05ea33e214d3f5c47'
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
-
-      - name: Set yarn cache
-        uses: c-hive/gha-yarn-cache@v2
-
-      - name: Install dependencies
-        run: yarn
-
-      - name: Build project
-        run: yarn build-firefox
-
-      - name: Show file
-        run: ls -l
-
-      - name: Publish to Firefox Add-ons
-        uses: wdzeng/firefox-addon@v1
-        with:
-          xpi-path: ${{ env.FIREFOX_PATH_XPI }}
-          addon-guid: ${{ env.FIREFOX_ADDON_GUID }}
-          jwt-issuer: ${{ env.FIREFOX_JWT_ISSUER }}
-          jwt-secret: ${{ env.FIREFOX_JWT_SECRET }}
-
   publish-edge:
     name: Publish extension to Edge Add-ons
     runs-on: ubuntu-latest
-    needs:
-      - build-chrome
     env:
       EDGE_PRODUCT_ID: 'b8afd1eb-98a4-4712-b53e-93b3e4834a99'
       EDGE_CLIENT_ID: '6370ecc6-f298-460b-ae52-1bffb6fe2ba4'
