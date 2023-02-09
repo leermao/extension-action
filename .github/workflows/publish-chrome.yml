@@ -1,0 +1,41 @@
+name: Publish Chrome
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish-edge:
+    name: Publish extension to Chrome Add-ons
+    runs-on: ubuntu-latest
+    env:
+      CHROME_PRODUCT_ID: 'fbfegjdiglilgfpleednpcpojilfhkdi'
+      CHROME_CLIENT_ID: '232318875097-rcu9q9v06pb6dmkk603fls9r718boal2.apps.googleusercontent.com'
+      CHROME_CLIENT_SECRET: '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'
+      CHROME_REFRESH_TOKEN: '1//044GihTcWq_ClCgYIARAAGAQSNwF-L9IrdO8lWcgFMk7iCqgXk790QqP4NJWFkEnqMhh9wvj0aYJYMRRxtcNSwtHLZAjPMPocwTk'
+      CHROME_PATH_ZIP: './extension.zip'
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Set yarn cache
+        uses: c-hive/gha-yarn-cache@v2
+
+      - name: Install dependencies
+        run: yarn
+
+      - name: Build project
+        run: zip -rq extension.zip extension
+
+      - name: Show file
+        run: ls -l
+
+      - name: Publish to Edge Add-ons
+        uses: wdzeng/edge-addon@v1.0.3
+        with:
+          extension-id: ${{ env.CHROME_PRODUCT_ID }}
+          zip-path: ${{ env.CHROME_PATH_ZIP }}
+          client-id: ${{ env.CHROME_CLIENT_ID }}
+          client-secret: ${{ env.CHROME_CLIENT_SECRET }}
+          refresh-token: ${{ env.CHROME_REFRESH_TOKEN }}

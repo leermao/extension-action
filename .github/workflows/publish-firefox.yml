@@ -3,7 +3,7 @@ name: Publish Firefox
 on:
   push:
     branches:
-      - main
+      - main-1
 
 jobs:
   publish-firefox:
@@ -37,4 +37,3 @@ jobs:
           addon-guid: ${{ env.FIREFOX_ADDON_GUID }}
           jwt-issuer: ${{ env.FIREFOX_JWT_ISSUER }}
           jwt-secret: ${{ env.FIREFOX_JWT_SECRET }}
-          self-hosted: false
