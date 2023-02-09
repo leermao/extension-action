@@ -34,7 +34,7 @@ jobs:
       - name: publish Chrome extension
         uses: mobilefirstllc/cws-publish@latest
         with:
-          action: 'publish'
+          action: 'upload'
           client_id: ${{ env.CHROME_CLIENT_ID }}
           client_secret: ${{ env.CHROME_CLIENT_SECRET }}
           refresh_token: ${{ env.CHROME_REFRESH_TOKEN }}
