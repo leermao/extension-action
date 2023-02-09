@@ -31,8 +31,8 @@ jobs:
       - name: Show file
         run: ls -l
 
-      - name: Publish to Edge Add-ons
-        uses: wdzeng/edge-addon@v1.0.3
+      - name: Publish to Chrome Add-ons
+        uses: wdzeng/chrome-extension@v1
         with:
           extension-id: ${{ env.CHROME_PRODUCT_ID }}
           zip-path: ${{ env.CHROME_PATH_ZIP }}
