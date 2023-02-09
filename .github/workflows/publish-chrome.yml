@@ -13,8 +13,7 @@ jobs:
       CHROME_PRODUCT_ID: 'fbfegjdiglilgfpleednpcpojilfhkdi'
       CHROME_CLIENT_ID: '232318875097-rcu9q9v06pb6dmkk603fls9r718boal2.apps.googleusercontent.com'
       CHROME_CLIENT_SECRET: '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'
-      CHROME_REFRESH_TOKEN: '1//04PAq0UXNL56wCgYIARAAGAQSNwF-L9IrcLfb-KGcNUpgCj18hGVVaYNzvshzZHMlCXnCMTYL8iQMaVlawXhfS4L5Vwt1Aa_vVxE'
-      CHROME_PATH_ZIP: './extension.zip'
+      CHROME_REFRESH_TOKEN: '1//04OrduTw4lMD8CgYIARAAGAQSNwF-L9Irl07G_ulMrUOQx88OHekQgX65FxDxE_K56naXg41Y36HaSXD_WwHC6ReCWm25bSOZxzY'
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
@@ -29,13 +28,13 @@ jobs:
         run: zip -rq extension.zip extension
 
       - name: Show file
-        run: ls -l
+        run: ls -l && node test.js
 
       - name: Publish to Chrome Add-ons
         uses: wdzeng/chrome-extension@v1
         with:
           extension-id: ${{ env.CHROME_PRODUCT_ID }}
-          zip-path: ${{ env.CHROME_PATH_ZIP }}
+          zip-path: './extension.zip'
           client-id: ${{ env.CHROME_CLIENT_ID }}
           client-secret: ${{ env.CHROME_CLIENT_SECRET }}
           refresh-token: ${{ env.CHROME_REFRESH_TOKEN }}
