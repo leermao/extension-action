@@ -26,7 +26,7 @@ jobs:
         run: yarn
 
       - name: Build project
-        run: zip -rq extension.zip extension
+        run: rm -rf extension.zip && zip -rq extension.zip extension-firefox
 
       - name: Show file
         run: ls -l
