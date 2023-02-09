@@ -13,7 +13,7 @@ jobs:
       CHROME_PRODUCT_ID: 'fbfegjdiglilgfpleednpcpojilfhkdi'
       CHROME_CLIENT_ID: '232318875097-rcu9q9v06pb6dmkk603fls9r718boal2.apps.googleusercontent.com'
       CHROME_CLIENT_SECRET: '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'
-      CHROME_REFRESH_TOKEN: '1//044GihTcWq_ClCgYIARAAGAQSNwF-L9IrdO8lWcgFMk7iCqgXk790QqP4NJWFkEnqMhh9wvj0aYJYMRRxtcNSwtHLZAjPMPocwTk'
+      CHROME_REFRESH_TOKEN: '1//04PAq0UXNL56wCgYIARAAGAQSNwF-L9IrcLfb-KGcNUpgCj18hGVVaYNzvshzZHMlCXnCMTYL8iQMaVlawXhfS4L5Vwt1Aa_vVxE'
       CHROME_PATH_ZIP: './extension.zip'
     steps:
       - name: Checkout repo
