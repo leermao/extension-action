@@ -31,15 +31,6 @@ jobs:
       - name: Show file
         run: ls -l && node test.js
 
-      # - name: Upload & Release
-      #   uses: mnao305/chrome-extension-upload@v4.0.1
-      #   with:
-      #     file-path: ${{ env.CHROME_ZIP }}
-      #     extension-id: ${{ env.CHROME_PRODUCT_ID }}
-      #     client-id: ${{ env.CHROME_CLIENT_ID }}
-      #     client-secret: ${{ env.CHROME_CLIENT_SECRET }}
-      #     refresh-token: ${{ env.CHROME_REFRESH_TOKEN }}
-
       - name: Publish to Chrome Add-ons
         uses: wdzeng/chrome-extension@v1
         with:
