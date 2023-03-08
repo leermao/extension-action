@@ -1,3 +1,4 @@
+# https://developers.google.com/oauthplayground/
 name: Publish Chrome
 
 on:
@@ -29,7 +30,7 @@ jobs:
         run: zip -rq extension.zip extension
 
       - name: Show file
-        run: ls -l && node test.js
+        run: ls -l
 
       - name: Publish to Chrome Add-ons
         uses: wdzeng/chrome-extension@v1
