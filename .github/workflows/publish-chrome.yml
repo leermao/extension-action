@@ -33,10 +33,11 @@ jobs:
         run: ls -l
 
       - name: Publish to Chrome Add-ons
-        uses: wdzeng/chrome-extension@v1.1.2
+        uses: mobilefirstllc/cws-publish@latest
         with:
-          extension-id: ${{ env.CHROME_PRODUCT_ID }}
-          zip-path: ${{ env.CHROME_ZIP }}
-          client-id: ${{ env.CHROME_CLIENT_ID }}
-          client-secret: ${{ env.CHROME_CLIENT_SECRET }}
-          refresh-token: ${{ env.CHROME_REFRESH_TOKEN }}
+          action: 'publish'
+          client_id: ${{ env.CHROME_CLIENT_ID }}
+          client_secret: ${{ env.CHROME_CLIENT_SECRET }}
+          refresh_token: ${{ env.CHROME_REFRESH_TOKEN }}
+          extension_id: ${{ env.CHROME_PRODUCT_ID }}
+          zip_file: ${{ env.CHROME_ZIP }}
