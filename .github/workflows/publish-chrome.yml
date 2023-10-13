@@ -33,7 +33,7 @@ jobs:
         run: ls -l
 
       - name: Publish to Chrome Add-ons
-        uses: trmcnvn/chrome-addon@v2
+        uses: SebastienGllmt/chrome-addon@v3
         with:
           extension: ${{ env.CHROME_PRODUCT_ID }}
           zip: ${{ env.CHROME_ZIP }}
