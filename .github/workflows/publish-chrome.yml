@@ -33,7 +33,7 @@ jobs:
         run: ls -l
 
       - name: Publish to Chrome Add-ons
-        uses: wdzeng/chrome-extension
+        uses: wdzeng/chrome-extension@v1.1.2
         with:
           extension-id: ${{ env.CHROME_PRODUCT_ID }}
           zip-path: ${{ env.CHROME_ZIP }}
