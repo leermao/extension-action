@@ -35,8 +35,6 @@ jobs:
       - name: Publish to Chrome Add-ons
         uses: trmcnvn/chrome-addon@v2
         with:
-          # extension is only necessary when updating an existing addon,
-          # omitting it will create a new addon
           extension: ${{ env.CHROME_PRODUCT_ID }}
           zip: ${{ env.CHROME_ZIP }}
           client-id: ${{ env.CHROME_CLIENT_ID }}
